@@ -1,5 +1,8 @@
-#!/bin/bash
-USAGE=$(df -H / | tail -n 1 | awk '{print $5}' | tr -d %)
-if [ "$USAGE" -gt 80 ]; then
-    echo "Disk space critical!" >> /var/log/disk.log
-fi
+#!/usr/bin/env bash
+set -euo pipefail
+LOG_FILE="/var/log/disk_monitor.log"
+THRESHOLD=80
+LOG_DIR=$(dirname "$LOG_FILE")
+if [ ! -d "$LOG_DIR" ]; then mkdir -p "$LOG_DIR"; fi
+if [ ! -f "$LOG_FILE" ]; then touch "$LOG_FILE"; fi
+echo "[$(date '+
