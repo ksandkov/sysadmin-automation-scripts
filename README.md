@@ -1,6 +1,6 @@
 # System Administration Automation Scripts
 
-A collection of lightweight, production-ready Bash scripts for system monitoring, log rotation, and basic server maintenance.
+Simple Bash scripts for basic server maintenance: a disk usage check and log cleanup.
 
 ## Scripts Overview
 
